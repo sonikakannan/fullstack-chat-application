@@ -2,10 +2,13 @@ import { useState } from "react";
 import { Camera, Mail, User } from "lucide-react";
 import { useAuthStore } from "../store/useAuthstore";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const { authUser, isUpdatingProfile, updateProfile } = useAuthStore();
   const [selectedImg, setSelectedImg] = useState(null);
+  const navigate = useNavigate();
+
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -29,7 +32,16 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="h-screen pt-20">
+    <div className="h-screen pt-20 relative">
+      {/* Close button */}
+      <button
+        onClick={() => navigate("/")}
+        className="absolute top-4 right-4 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 transition"
+        aria-label="Close"
+      >
+        <X className="w-5 h-5" />
+      </button>
+
       <div className="max-w-2xl mx-auto p-4 py-8">
         <div className="bg-base-300 rounded-xl p-6 space-y-8">
           <div className="text-center">
