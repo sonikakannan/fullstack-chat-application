@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Camera, Mail, User } from "lucide-react";
+import { Camera, Mail, User, X } from "lucide-react";
 import { useAuthStore } from "../store/useAuthstore";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
